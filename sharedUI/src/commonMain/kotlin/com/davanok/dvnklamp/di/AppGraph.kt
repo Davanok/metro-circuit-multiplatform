@@ -1,0 +1,23 @@
+package com.davanok.dvnklamp.di
+
+import com.davanok.dvnklamp.AppClass
+import com.slack.circuit.foundation.Circuit
+import com.slack.circuit.runtime.presenter.Presenter
+import com.slack.circuit.runtime.ui.Ui
+import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.Provides
+import dev.zacsweers.metro.SingleIn
+
+interface AppGraph {
+    val app: AppClass
+
+    @Provides
+    @SingleIn(AppScope::class)
+    fun provideCircuit(
+        presenterFactories: Set<Presenter.Factory>,
+        uiFactories: Set<Ui.Factory>
+    ): Circuit = Circuit.Builder()
+        .addPresenterFactories(presenterFactories)
+        .addUiFactories(uiFactories)
+        .build()
+}
