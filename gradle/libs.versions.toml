@@ -47,6 +47,12 @@ circuit-runtime = { module = "com.slack.circuit:circuit-runtime", version.ref = 
 circuit-codegen = { module = "com.slack.circuit:circuit-codegen", version.ref = "circuit" }
 circuit-codegen-annotations = { module = "com.slack.circuit:circuit-codegen-annotations", version.ref = "circuit" }
 
+kotlin-gradle-plugin-api = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin-api", version.ref = "kotlin" }
+kotlin-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+compose-multiplatform-plugin = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-multiplatform" }
+ksp-gradle-plugin = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+
 [plugins]
 
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
@@ -60,3 +66,13 @@ kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", vers
 metro = { id = "dev.zacsweers.metro", version.ref = "metro" }
 buildConfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildConfig" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
+# custom plugins
+build-ui = { id = "com.davanok.plugins.circuit-ui" }
+build-core = { id = "com.davanok.plugins.core" }
+
+[bundles]
+gradle-plugins = [
+    "kotlin-plugin",
+    "compose-multiplatform-plugin",
+]

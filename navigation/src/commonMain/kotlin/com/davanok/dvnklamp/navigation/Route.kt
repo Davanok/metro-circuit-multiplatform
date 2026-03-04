@@ -2,6 +2,7 @@ package com.davanok.dvnklamp.navigation
 
 import com.slack.circuit.runtime.screen.Screen
 
-sealed interface Route : Screen {
+@CommonParcelize
+sealed interface Route : Screen, CommonParcelable {
     data object Control : Route
 }

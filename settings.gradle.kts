@@ -36,3 +36,4 @@ include(":core")
 include(":navigation")
 include(":features:controlScreen")
 
+includeBuild("build-logic")
